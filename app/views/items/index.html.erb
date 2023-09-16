@@ -1,0 +1,12 @@
+<h1>Items#index</h1>
+<ul>
+  <% @items.each do |item| %>
+    <% unless !item.active? %>
+      <li>
+        <%= link_to item.name, item %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Item", new_item_path %>

@@ -1,0 +1,34 @@
+<%= form_with model: item do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% item.errors.full_messages_for(:name).each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.number_field :price, value: number_to_currency((form.object.price.to_f / 100.0) || 0, delimiter: '', unit: ''), step: 0.01 %>
+    <% item.errors.full_messages_for(:price).each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+    <% item.errors.full_messages_for(:description).each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['active', 'inactive'], selected: 'active' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<h1><%= @item.name %></h1>
+<p>$<%= '%.2f' % (@item.price/100.0) %></p>
+
+<ul>
+  <li>
+    <%= link_to "Edit", edit_item_path(@item) %>
+  </li>
+  <li>
+    <%= link_to "Destroy", item_path(@item), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@item.name}?" } %>
+  </li>
+</ul>
+
+<h2>Reviews</h2>
+<%= render @item.reviews %>
+
+<h2>Add Review</h2>
+<%= render 'reviews/form' %>
