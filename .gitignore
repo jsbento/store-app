@@ -36,3 +36,6 @@
 
 # Ignore log files
 /log/*.log
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
